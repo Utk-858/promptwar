@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:20-alpine
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ RUN cd backend && npm install
 # Install dependencies for the frontend and build static assets
 RUN cd frontend && npm install && npm run build
 
-# Cloud Run defaults mapping to 8080
+# Cloud Run uses 8080
 EXPOSE 8080
 
 # Start the combined server
